@@ -14,6 +14,11 @@ class MyApp extends StatelessWidget {
         '/': (BuildContext context) => HomeScreen(),
         'alert': (BuildContext context) => AlertScreen()
       },
+      onGenerateRoute: (RouteSettings settings){
+        return MaterialPageRoute(
+          builder: (context) => AlertScreen()
+        );
+      },
     );
   }
 }
