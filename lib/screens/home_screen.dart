@@ -17,7 +17,13 @@ class HomeScreen extends StatelessWidget {
         builder: (context,AsyncSnapshot<Data> snapshot){
           if(snapshot.hasData){
             return ListView(
-              children: _crearLista(snapshot.data, context),
+              children: snapshot.data.rutas.map(
+                (item) => ListTile(
+                  title: Text(item.texto),
+                  leading: getIcon(item.icon),
+                  trailing: Icon(Icons.keyboard_arrow_right),
+                  onTap: () => Navigator.pushNamed(context, item.ruta),
+                )).toList(),
             );
           }
           else{
